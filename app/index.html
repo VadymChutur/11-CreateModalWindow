@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/modal.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <button type="button" class="modal-show" data-modal="#sing-in">
+      show window
+    </button>
+
+    <div class="modal-wrap hide">
+      <div class="modal hide" id="sing-in">
+        <p>Our modal window</p>
+        <button type="button" class="modal-close" data-modal="#sing-in">
+          Close
+        </button>
+        <button
+          type="button"
+          class="modal-close round-close"
+          data-modal="#sing-in"
+        >
+          X
+        </button>
+      </div>
+    </div>
+
+    <script type="module" src="./js/modal.js"></script>
+  </body>
+</html>
