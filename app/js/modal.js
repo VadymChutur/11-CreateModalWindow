@@ -1,6 +1,8 @@
 const butOpenRef = document.querySelectorAll('.modal-show');
 const butCloseRef = document.querySelectorAll('.modal-close');
-const clickMouseOpenModalRef = document.querySelectorAll('.modal-wrap');
+const modalWrapRef = document.querySelectorAll('.modal-wrap');
+
+// const escOnKeyDouwnRef = window;
 // const escOnKeyDouwnRef = (document.onkeydown = (event) => {
 //   console.log(event);
 //   if (event.keyCode === 27) {
@@ -14,17 +16,48 @@ const clickMouseOpenModalRef = document.querySelectorAll('.modal-wrap');
 
 // console.log(butOpenRef);
 
+// console.log(escOnKeyDouwnRef);
+// escOnKeyDouwnRef.addEventListener('keydown', closeModalWindowWithEsc);
+
+function closeModalWindowWithEsc() {
+  console.log('start');
+  window.addEventListener(
+    'keydown',
+    (event) => {
+      closePressEsc(event);
+    },
+    { once: true }
+  );
+}
+
+function closePressEsc(event) {
+  console.log('start 2');
+  console.log(event);
+  if (event.keyCode === 27) {
+    const modalRef = document.querySelectorAll('.modal');
+    modalRef[0].parentElement.classList.toggle('hide');
+    modalRef[0].classList.toggle('hide');
+    console.log(modalRef[0].parentElement.classList);
+  }
+}
+
 butOpenRef.forEach((element) => (element.onclick = toggleModal));
 
-butCloseRef.forEach((element) => (element.onclick = toggleModal));
+// butCloseRef.forEach((element) => {
+//   //   element.onclick = toggleModal;
+//   element.addEventListener('click', (event) => {
+//     console.log(element);
+//   });
+// });
 
-clickMouseOpenModalRef.forEach((element) => (element.onclick = closeModalWrap));
+modalWrapRef.forEach((element) => (element.onclick = closeModalWrap));
 
 function toggleModal() {
   const modalId = this.dataset.modal;
   const modalRef = document.querySelector(modalId);
-  console.log(modalRef.parentElement.classList);
-  console.log(modalRef.classList);
+  closeModalWindowWithEsc();
+  //   console.log(modalRef.parentElement.classList);
+  //   console.log(modalRef.classList);
   modalRef.parentElement.classList.toggle('hide');
   modalRef.classList.toggle('hide');
   //   console.log(modalId);
