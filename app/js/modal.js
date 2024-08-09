@@ -1,5 +1,5 @@
 const butOpenRef = document.querySelectorAll('.modal-show');
-const butCloseRef = document.querySelectorAll('.modal-close');
+// const butCloseRef = document.querySelectorAll('.modal-close');
 const modalWrapRef = document.querySelectorAll('.modal-wrap');
 
 // const escOnKeyDouwnRef = window;
@@ -20,7 +20,7 @@ const modalWrapRef = document.querySelectorAll('.modal-wrap');
 // escOnKeyDouwnRef.addEventListener('keydown', closeModalWindowWithEsc);
 
 function closeModalWindowWithEsc() {
-  console.log('start');
+  //   console.log('start');
   window.addEventListener(
     'keydown',
     (event) => {
@@ -31,13 +31,17 @@ function closeModalWindowWithEsc() {
 }
 
 function closePressEsc(event) {
-  console.log('start 2');
-  console.log(event);
-  if (event.keyCode === 27) {
-    const modalRef = document.querySelectorAll('.modal');
-    modalRef[0].parentElement.classList.toggle('hide');
+  //   console.log('start 2');
+  //   console.log(event);
+  //   console.log(modalWrapRef[0].classList.value === 'modal-wrap');
+  if (
+    event.keyCode === 27 &&
+    modalWrapRef[0].classList.value === 'modal-wrap'
+  ) {
+    const modalRef = document.querySelectorAll('.modal-wrap');
+    // modalRef[0].parentElement.classList.toggle('hide');
     modalRef[0].classList.toggle('hide');
-    console.log(modalRef[0].parentElement.classList);
+    // console.log(modalRef);
   }
 }
 
@@ -58,13 +62,12 @@ function toggleModal() {
   closeModalWindowWithEsc();
   //   console.log(modalRef.parentElement.classList);
   //   console.log(modalRef.classList);
-  modalRef.parentElement.classList.toggle('hide');
   modalRef.classList.toggle('hide');
   //   console.log(modalId);
 }
 
 function closeModalWrap() {
-  const modalWrapRef = this.children;
-  modalWrapRef[0].classList.toggle('hide');
+  //   const modalWrapRef = this.children;
+  //   modalWrapRef[0].classList.toggle('hide');
   this.classList.toggle('hide');
 }
