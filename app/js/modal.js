@@ -45,7 +45,8 @@ function closePressEsc(event) {
   }
 }
 
-butOpenRef.forEach((element) => (element.onclick = toggleModal));
+// butOpenRef.forEach((element) => (element.onclick = toggleModal));
+butOpenRef.forEach((element) => (element.onclick = closeModal));
 
 // butCloseRef.forEach((element) => {
 //   //   element.onclick = toggleModal;
@@ -54,21 +55,30 @@ butOpenRef.forEach((element) => (element.onclick = toggleModal));
 //   });
 // });
 
-modalWrapRef.forEach((element) => (element.onclick = closeModalWrap));
+// modalWrapRef.forEach((element) => (element.onclick = closeModalWrap));
+modalWrapRef.forEach((element) => (element.onclick = closeModal));
 
-function toggleModal() {
-  const modalId = this.dataset.modal;
-  const modalRef = document.querySelector(modalId);
+// function toggleModal() {
+//   const modalId = this.dataset.modal;
+//   const modalRef = document.querySelector(modalId);
+//   closeModalWindowWithEsc();
+//   //   console.log(modalRef.parentElement.classList);
+//   //   console.log(modalRef.classList);
+//   modalRef.classList.toggle('hide');
+//   //   this.classList.toggle('hide');
+//   //   console.log(modalId);
+// }
+
+// function closeModalWrap() {
+//   //   const modalWrapRef = this.children;
+//   //   modalWrapRef[0].classList.toggle('hide');
+//   this.classList.toggle('hide');
+// }
+
+function closeModal() {
+  modalWrapRef.forEach((element) => {
+    // console.log(element);
+    element.classList.toggle('hide');
+  });
   closeModalWindowWithEsc();
-  //   console.log(modalRef.parentElement.classList);
-  //   console.log(modalRef.classList);
-  modalRef.classList.toggle('hide');
-  //   this.classList.toggle('hide');
-  //   console.log(modalId);
-}
-
-function closeModalWrap() {
-  //   const modalWrapRef = this.children;
-  //   modalWrapRef[0].classList.toggle('hide');
-  this.classList.toggle('hide');
 }
