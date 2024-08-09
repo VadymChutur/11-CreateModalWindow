@@ -46,7 +46,6 @@ function closePressEsc(event) {
 }
 
 // butOpenRef.forEach((element) => (element.onclick = toggleModal));
-butOpenRef.forEach((element) => (element.onclick = closeModal));
 
 // butCloseRef.forEach((element) => {
 //   //   element.onclick = toggleModal;
@@ -56,7 +55,6 @@ butOpenRef.forEach((element) => (element.onclick = closeModal));
 // });
 
 // modalWrapRef.forEach((element) => (element.onclick = closeModalWrap));
-modalWrapRef.forEach((element) => (element.onclick = closeModal));
 
 // function toggleModal() {
 //   const modalId = this.dataset.modal;
@@ -82,3 +80,6 @@ function closeModal() {
   });
   closeModalWindowWithEsc();
 }
+
+butOpenRef.forEach((element) => (element.onclick = closeModal));
+modalWrapRef.forEach((element) => (element.onclick = closeModal));
