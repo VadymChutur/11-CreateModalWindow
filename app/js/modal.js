@@ -63,6 +63,7 @@ function toggleModal() {
   //   console.log(modalRef.parentElement.classList);
   //   console.log(modalRef.classList);
   modalRef.classList.toggle('hide');
+  //   this.classList.toggle('hide');
   //   console.log(modalId);
 }
 
